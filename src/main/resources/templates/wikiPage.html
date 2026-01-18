@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${title}">Page</title>
-    <link rel="stylesheet" th:href="@{/css/wiki.css}">
+    <link rel="stylesheet" th:href="@{/css/wikiPage.css}">
 </head>
 <body>
 
@@ -27,9 +27,7 @@
             <li th:each="page : ${pages}">
                 <a th:href="@{|/${page.slug}|}" th:text="${page.title}"></a>
             </li>
-
         </ul>
-
         <hr class="solid"> <!-- Page separator -->
     </aside>
 

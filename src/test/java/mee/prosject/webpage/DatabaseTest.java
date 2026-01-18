@@ -61,7 +61,7 @@ public class DatabaseTest {
 
         PageRepository pageRepository = new PageRepository(ds);
         PageRegistry pageRegistry = new PageRegistry(pageRepository);
-        PageContentService pageContentService = new PageContentService();
+        PageContentService pageContentService = new PageContentService(pageRegistry);
         PageCreator pageCreator = new PageCreator(pageRegistry, pageContentService);
 
         Page page = pageCreator.createPage("TestPage", "This is a test page.");
@@ -83,7 +83,7 @@ public class DatabaseTest {
 
         PageRepository pageRepository = new PageRepository(ds);
         PageRegistry pageRegistry = new PageRegistry(pageRepository);
-        PageContentService pageContentService = new PageContentService();
+        PageContentService pageContentService = new PageContentService(pageRegistry);
         PageCreator pageCreator = new PageCreator(pageRegistry, pageContentService);
 
         Page page = pageCreator.createPage("TestPage", "This is a test page.");
@@ -102,7 +102,7 @@ public class DatabaseTest {
 
         PageRepository pageRepository = new PageRepository(ds);
         PageRegistry pageRegistry = new PageRegistry(pageRepository);
-        PageContentService pageContentService = new PageContentService();
+        PageContentService pageContentService = new PageContentService(pageRegistry);
         PageCreator pageCreator = new PageCreator(pageRegistry, pageContentService);
 
         Page page = pageCreator.createPage("TestPage", "This is a test page.");
@@ -121,7 +121,7 @@ public class DatabaseTest {
 
         PageRepository pageRepository = new PageRepository(ds);
         PageRegistry pageRegistry = new PageRegistry(pageRepository);
-        PageContentService pageContentService = new PageContentService();
+        PageContentService pageContentService = new PageContentService(pageRegistry);
         PageCreator pageCreator = new PageCreator(pageRegistry, pageContentService);
 
         Page page = pageCreator.createPage("TestPage", "This is a test page.");

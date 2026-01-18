@@ -1,0 +1,96 @@
+/* Basic reset */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header input[type="search"] {
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+}
+
+/* Main layout */
+main {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar */
+aside {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-right: 1px solid #ddd;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside li {
+    margin-bottom: 0.5rem;
+}
+
+aside a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
+
+/* Content area */
+article {
+    flex: 1;
+    padding: 2rem;
+}
+
+article h1, article h2, article h3 {
+    margin-bottom: 1rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Links in content */
+article a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
