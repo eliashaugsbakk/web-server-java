@@ -1,7 +1,7 @@
-package mee.prosject.webpage.service.page;
+package no.eliashaugsbakk.webserver.service.page;
 
 import jakarta.annotation.PostConstruct;
-import mee.prosject.webpage.model.PageMetaData;
+import no.eliashaugsbakk.webserver.model.PageMetaData;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;

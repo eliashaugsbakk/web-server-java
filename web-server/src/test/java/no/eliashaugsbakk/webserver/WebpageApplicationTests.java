@@ -1,4 +1,4 @@
-package mee.prosject.webpage;
+package no.eliashaugsbakk.webserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

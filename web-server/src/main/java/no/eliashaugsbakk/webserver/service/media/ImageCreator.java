@@ -1,8 +1,8 @@
-package mee.prosject.webpage.service.media;
+package no.eliashaugsbakk.webserver.service.media;
 
-import mee.prosject.webpage.model.Image;
-import mee.prosject.webpage.model.ImageMetaData;
-import mee.prosject.webpage.model.Page;
+import no.eliashaugsbakk.webserver.model.Image;
+import no.eliashaugsbakk.webserver.model.ImageMetaData;
+import no.eliashaugsbakk.webserver.model.Page;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

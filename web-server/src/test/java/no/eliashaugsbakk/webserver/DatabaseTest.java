@@ -1,11 +1,11 @@
-package mee.prosject.webpage;
+package no.eliashaugsbakk.webserver;
 
-import mee.prosject.webpage.model.Page;
-import mee.prosject.webpage.model.PageMetaData;
-import mee.prosject.webpage.service.page.PageContentService;
-import mee.prosject.webpage.service.page.PageCreator;
-import mee.prosject.webpage.service.page.PageRegistry;
-import mee.prosject.webpage.service.page.PageRepository;
+import no.eliashaugsbakk.webserver.model.Page;
+import no.eliashaugsbakk.webserver.model.PageMetaData;
+import no.eliashaugsbakk.webserver.service.page.PageContentService;
+import no.eliashaugsbakk.webserver.service.page.PageCreator;
+import no.eliashaugsbakk.webserver.service.page.PageRegistry;
+import no.eliashaugsbakk.webserver.service.page.PageRepository;
 import org.h2.jdbcx.JdbcDataSource;
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.Assertions;

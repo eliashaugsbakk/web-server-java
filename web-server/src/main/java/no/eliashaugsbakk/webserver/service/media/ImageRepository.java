@@ -1,7 +1,7 @@
-package mee.prosject.webpage.service.media;
+package no.eliashaugsbakk.webserver.service.media;
 
-import mee.prosject.webpage.model.Image;
-import mee.prosject.webpage.model.ImageMetaData;
+import no.eliashaugsbakk.webserver.model.Image;
+import no.eliashaugsbakk.webserver.model.ImageMetaData;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;

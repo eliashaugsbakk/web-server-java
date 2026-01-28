@@ -1,4 +1,4 @@
-package mee.prosject.webpage;
+package no.eliashaugsbakk.webserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package mee.prosject.webpage.service.media;
+package no.eliashaugsbakk.webserver.service.media;
 
 import jakarta.annotation.PostConstruct;
-import mee.prosject.webpage.model.ImageMetaData;
+import no.eliashaugsbakk.webserver.model.ImageMetaData;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;

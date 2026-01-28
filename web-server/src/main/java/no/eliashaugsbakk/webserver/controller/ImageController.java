@@ -1,7 +1,7 @@
-package mee.prosject.webpage.controller;
+package no.eliashaugsbakk.webserver.controller;
 
-import mee.prosject.webpage.model.Image;
-import mee.prosject.webpage.service.media.ImageRepository;
+import no.eliashaugsbakk.webserver.model.Image;
+import no.eliashaugsbakk.webserver.service.media.ImageRepository;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

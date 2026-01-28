@@ -1,8 +1,8 @@
-package mee.prosject.webpage.service.page;
+package no.eliashaugsbakk.webserver.service.page;
 
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
-import mee.prosject.webpage.model.PageMetaData;
+import no.eliashaugsbakk.webserver.model.PageMetaData;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

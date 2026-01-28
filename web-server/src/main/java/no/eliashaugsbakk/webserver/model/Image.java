@@ -1,4 +1,4 @@
-package mee.prosject.webpage.model;
+package no.eliashaugsbakk.webserver.model;
 
 
 import jakarta.persistence.*;

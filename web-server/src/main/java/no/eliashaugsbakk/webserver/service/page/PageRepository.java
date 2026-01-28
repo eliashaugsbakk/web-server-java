@@ -1,7 +1,7 @@
-package mee.prosject.webpage.service.page;
+package no.eliashaugsbakk.webserver.service.page;
 
-import mee.prosject.webpage.model.Page;
-import mee.prosject.webpage.model.PageMetaData;
+import no.eliashaugsbakk.webserver.model.Page;
+import no.eliashaugsbakk.webserver.model.PageMetaData;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;

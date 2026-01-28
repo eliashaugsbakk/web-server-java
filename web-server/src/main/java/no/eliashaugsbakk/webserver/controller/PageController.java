@@ -1,9 +1,9 @@
-package mee.prosject.webpage.controller;
+package no.eliashaugsbakk.webserver.controller;
 
-import mee.prosject.webpage.model.Page;
-import mee.prosject.webpage.service.page.PageContentService;
-import mee.prosject.webpage.service.page.PageRegistry;
-import mee.prosject.webpage.service.page.PageRepository;
+import no.eliashaugsbakk.webserver.model.Page;
+import no.eliashaugsbakk.webserver.service.page.PageContentService;
+import no.eliashaugsbakk.webserver.service.page.PageRegistry;
+import no.eliashaugsbakk.webserver.service.page.PageRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
