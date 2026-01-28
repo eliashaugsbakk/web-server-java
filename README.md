@@ -25,11 +25,3 @@ This roadmap outlines the development stages for the Tor-based web uploader.
 * [ ] **[Client]** Smart-switch logic for Tor vs. Clearnet (HTTPS).
 * [ ] **[Server]** Multi-user support (Token management for multiple clients).
 * [ ] **[Client]** GUI wrapper or enhanced interactive CLI.
-
-
-Phase 4: Expansion & Clearnet Readiness
-[ ] [Client] Smart-switch logic for Tor vs. Clearnet (HTTPS).
-
-[ ] [Server] Multi-user support (Token management for multiple clients).
-
-[ ] [Client] GUI wrapper or enhanced interactive CLI.
