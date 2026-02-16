@@ -3,8 +3,6 @@ package no.eliashaugsbakk.webserver.model;
 import java.time.Instant;
 
 public record ImageMetaData(
-        Long id,
-        String filename,
-        String contentType,
+        String filePath,
         Instant uploadedAt
 ) {}
