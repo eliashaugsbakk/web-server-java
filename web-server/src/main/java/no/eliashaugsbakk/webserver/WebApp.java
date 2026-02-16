@@ -3,6 +3,7 @@ package no.eliashaugsbakk.webserver;
 
 public class WebApp {
 
-	static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		new MyHttpServer().start();
 	}
 }
