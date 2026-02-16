@@ -3,7 +3,7 @@
 ## Rewrite webserver without spring
 The scope of the should be limited by design. The web server wil only serve html+css sites over http. When being deployed, nginx or some other webserver would probably live in between this webserver and the user. Nginx would serve all static content, like images and error pages, while the java web server would handle displaying different sides from a DB.
 
-* [ ] Get a simple static webserver running
+* [x] Get a simple static webserver running
 * [ ] Implement routing
 * [ ] Let different sides to be served depending on the request using a String variable containing the html.
 * [ ] JDBC, SQLite
