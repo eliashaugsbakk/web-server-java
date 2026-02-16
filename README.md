@@ -1,12 +1,24 @@
 # Project Roadmap
 
-This roadmap outlines the development stages for the Tor-based web uploader.
+## Rewrite webserver without spring
+The scope of the should be limited by design. The web server wil only serve html+css sites over http. When being deployed, nginx or some other webserver would probably live in between this webserver and the user. Nginx would serve all static content, like images and error pages, while the java web server would handle displaying different sides from a DB.
 
+* [ ] Get a simple static webserver running
+* [ ] Implement routing
+* [ ] Let different sides to be served depending on the request using a String variable containing the html.
+* [ ] JDBC, SQLite
+* [ ] Allow sites to be added with markdown syntax
+
+## Security consernce
+This web server will be designed to host sites over the Tor-network. The scope of the server would be small to limit the attack surface.
+* [ ] SQL injection
+* [ ] Cross-site scripting
+* [ ] DOS
+* [ ] Other potential security issues?
 
 ## Phase 1: MVP - Core Connectivity (Current)
-* [ ] **[Server]** Implement Nginx as a middleman. Nginx should handle anything it can (images, static sites like 404), and forward requests to Spring when needed.
 * [x] **[Client]** Implement Tor SOCKS5 proxy integration via OkHttp.
-* [ ] **[Server]** Move to a persisteint DB (sqlite should be sufficient)
+* [ ] **[Server]** Move to a persisteint DB (sqlite)
 * [ ] **[Server]** Update application.properties to minimize the footprint of the server.
 * [ ] **[Server]** (SECURITY) Create robust errorhandling. Do not leak server information to http requests.
 * [ ] **[Server]** (SECURITY) Disable all default Spring/Tomcat headers to prevent fingerprinting.
