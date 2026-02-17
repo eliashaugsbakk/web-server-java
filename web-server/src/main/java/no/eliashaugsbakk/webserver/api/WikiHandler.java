@@ -2,7 +2,8 @@ package no.eliashaugsbakk.webserver.api;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import no.eliashaugsbakk.webserver.db.DatabaseManager;
+import no.eliashaugsbakk.webserver.db.Jdbc.DatabaseManager;
+import no.eliashaugsbakk.webserver.db.Jdbc.JdbcPageRepository;
 import no.eliashaugsbakk.webserver.model.Page;
 
 import java.io.IOException;
@@ -13,10 +14,10 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class WikiHandler implements HttpHandler {
-    private final DatabaseManager db;
+    private final JdbcPageRepository pageRepo;
 
-    public WikiHandler(DatabaseManager db) {
-        this.db = db;
+    public WikiHandler(JdbcPageRepository pageRepo) {
+        this.pageRepo = pageRepo;
     }
 
     @Override
@@ -29,14 +30,14 @@ public class WikiHandler implements HttpHandler {
 
             if (parts.length > 2 && !parts[2].trim().isEmpty()) {
                 String pageSlug = parts[2];
-                Page page = db.getPage(pageSlug);
+                Page page = pageRepo.getPageBySlug(pageSlug);
 
                 if (page == null) {
                     exchange.sendResponseHeaders(404, -1);
                     return;
                 }
 
-                List<Page> allPages = db.getAllPages();
+                List<Page> allPages = pageRepo.getAllPages();
                 StringBuilder sidebarHtml = new StringBuilder();
 
                 for (Page p : allPages) {
