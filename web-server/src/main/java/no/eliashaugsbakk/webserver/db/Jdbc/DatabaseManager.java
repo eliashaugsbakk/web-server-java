@@ -30,6 +30,7 @@ public class DatabaseManager {
         }
     }
 
+    // TODO: Would this getConnection method handle multiple concurrent requests well?
     public Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection(url);
