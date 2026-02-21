@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.eliashaugsbakk</groupId>
-    <artifactId>uploader</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>webpage</name>
-    <description>Client to upload pages to webpage project</description>
+    <parent>
+        <groupId>no.eliashaugsbakk</groupId>
+        <artifactId>website</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-    <properties>
-        <java.version>25</java.version>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <artifactId>upload-client</artifactId>
+    <name>upload-client</name>
+    <description>Client to upload pages to webpage project</description>
 
     <dependencies>
         <dependency>
