@@ -32,7 +32,7 @@ public class NetworkService {
   public void uploadBundle(byte[] data, String fileName, String hash) throws IOException {
     RequestBody fileBody = RequestBody.create(
         data,
-        MediaType.parse("application/zip")
+        MediaType.parse("application/json; charset=utf-8")
     );
 
     RequestBody requestBody = new MultipartBody.Builder()
@@ -46,6 +46,7 @@ public class NetworkService {
         .header("Authorization", "Bearer " + authToken)
         .post(requestBody)
         .build();
+    IO.println(request);
 
     try (Response response = client.newCall(request).execute()) {
       if (!response.isSuccessful()) {
