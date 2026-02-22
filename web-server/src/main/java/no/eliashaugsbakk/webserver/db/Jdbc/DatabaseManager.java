@@ -5,15 +5,19 @@ import java.sql.*;
 public class DatabaseManager {
 
     private final String url;
-    private Connection connection;
 
     public DatabaseManager(String dbFilePath) {
-        this.url = "jdbc:sqlite:" + dbFilePath;
+        this.url = "jdbc:sqlite:" + dbFilePath + "?busy_timeout=5000";
     }
 
-    public void initialize() {
-        String sql = """
-        CREATE TABLE IF NOT EXISTS page (
+    private Connection createConnection() throws SQLException {
+        return DriverManager.getConnection(url);
+    }
+
+
+    public void initialize() throws SQLException {
+        String sqlPages = """
+        CREATE TABLE IF NOT EXISTS pages (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             slug TEXT NOT NULL UNIQUE,
             title TEXT NOT NULL,
@@ -22,29 +26,24 @@ public class DatabaseManager {
         );
     """;
 
-        try (Statement statement = connection.createStatement()) {
-            statement.execute(sql);
+        String sqlTokens = """
+        CREATE TABLE IF NOT EXISTS tokens (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            tokenValue TEXT NOT NULL UNIQUE,
+            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+    """;
+
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(sqlPages);
+            stmt.execute(sqlTokens);
             System.out.println("Database initialized successfully.");
-        } catch (SQLException e) {
-            System.err.println("Could not initialize database: " + e.getMessage());
         }
     }
 
+    // New DB connection for every request to handle multiple concurrent requests
     public Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(url);
-        }
-        return this.connection;
-    }
-
-    public void stopConnection() throws SQLException {
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-                System.out.println("Database connection closed.");
-            }
-        } catch (SQLException e) {
-            System.err.println("Error closing connection: " + e.getMessage());
-        }
+        return DriverManager.getConnection(url);
     }
 }

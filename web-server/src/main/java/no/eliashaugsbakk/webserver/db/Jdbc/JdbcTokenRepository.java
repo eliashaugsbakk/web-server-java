@@ -1,0 +1,61 @@
+package no.eliashaugsbakk.webserver.db.Jdbc;
+
+import no.eliashaugsbakk.webserver.db.TokenRepository;
+import no.eliashaugsbakk.webserver.model.Page;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class JdbcTokenRepository implements TokenRepository {
+
+    private final DatabaseManager dbManager;
+
+    public JdbcTokenRepository(DatabaseManager dbManager) {
+        this.dbManager = dbManager;
+    }
+
+    @Override
+    public boolean addToken(String token) throws SQLException {
+        String sql =
+                """
+                INSERT INTO tokens (tokenValue) VALUES (?)
+                """;
+        try (Connection conn = dbManager.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, token);
+            return stmt.executeUpdate() == 1;
+        }
+    }
+
+
+    @Override
+    public boolean removeToken(String token) throws SQLException {
+        String sql =
+                """
+                DELETE FROM tokens WHERE tokenValue = ?;
+                """;
+        try (Connection conn = dbManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, token);
+            return stmt.executeUpdate() == 1;
+        }
+    }
+
+    @Override
+    public boolean isValid(String token) throws SQLException {
+        String sql =
+                """
+                SELECT 1 FROM tokens WHERE tokenValue = ?;
+                """;
+        try (Connection conn = dbManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, token);
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next();
+            }
+        }
+    }
+}

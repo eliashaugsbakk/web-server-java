@@ -6,5 +6,5 @@ public record Page(
         String slug,
         String title,
         Instant created,
-        String content
+        String html
 ) {}
