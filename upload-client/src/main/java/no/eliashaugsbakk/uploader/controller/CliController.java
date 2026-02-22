@@ -8,7 +8,6 @@ import no.eliashaugsbakk.uploader.service.DataNormalizerService;
 import no.eliashaugsbakk.uploader.service.NetworkService;
 import no.eliashaugsbakk.uploader.utils.AuthUtils;
 import no.eliashaugsbakk.utils.HashUtils;
-import no.eliashaugsbakk.utils.Image;
 import no.eliashaugsbakk.utils.JsonUtils;
 import no.eliashaugsbakk.utils.Post;
 

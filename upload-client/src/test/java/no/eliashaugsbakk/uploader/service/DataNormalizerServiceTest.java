@@ -1,6 +1,5 @@
 package no.eliashaugsbakk.uploader.service;
 
-import no.eliashaugsbakk.uploader.model.TextFile;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 

@@ -10,11 +10,6 @@ public class DatabaseManager {
         this.url = "jdbc:sqlite:" + dbFilePath + "?busy_timeout=5000";
     }
 
-    private Connection createConnection() throws SQLException {
-        return DriverManager.getConnection(url);
-    }
-
-
     public void initialize() throws SQLException {
         String sqlPages = """
         CREATE TABLE IF NOT EXISTS pages (

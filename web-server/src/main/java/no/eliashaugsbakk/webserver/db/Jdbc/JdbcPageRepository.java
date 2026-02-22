@@ -3,7 +3,6 @@ package no.eliashaugsbakk.webserver.db.Jdbc;
 import no.eliashaugsbakk.webserver.db.PageRepository;
 import no.eliashaugsbakk.webserver.model.Page;
 
-import javax.sql.DataSource;
 import java.sql.*;
 import java.time.Instant;
 import java.util.*;
@@ -76,8 +75,8 @@ public class JdbcPageRepository implements PageRepository {
 
         String sql =
                 """
-                SELECT slug, title FROM pages 
-                WHERE title LIKE ? ESCAPE '!' 
+                SELECT slug, title FROM pages
+                WHERE title LIKE ? ESCAPE '!'
                 ORDER BY title ASC
                 """;
         List<Page> result = new ArrayList<>();

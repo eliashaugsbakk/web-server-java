@@ -4,8 +4,7 @@ import no.eliashaugsbakk.utils.Image;
 import no.eliashaugsbakk.webserver.db.PageRepository;
 import no.eliashaugsbakk.webserver.model.Page;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,7 +13,7 @@ import java.time.Instant;
 import java.util.List;
 
 public class PostStorageService {
-    private final String imageDir = "/home/elias/Documents/projects/Website/web-server/src/main/resources/static/images";
+    private final String imageDir = "/app/data/images";
     private final PageRepository pageRepo;
 
     public PostStorageService(PageRepository pageRepo) {
@@ -29,12 +28,7 @@ public class PostStorageService {
             String slug = generateSlug(title);
 
 
-
-            try {
-                html = storeImages(images, slug, html);
-            } catch (IOException e) {
-                System.err.println("Error storing image: " + e.getMessage());
-            }
+            html = storeImages(images, slug, html);
 
             Instant createdAt = Instant.now();
 
@@ -51,13 +45,20 @@ public class PostStorageService {
         }
     }
 
-    private String storeImages(List<Image> images, String slug, String html) throws IOException {
+    private String storeImages(List<Image> images, String slug, String html) {
+        File directory = new File(imageDir);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
         try {
+            if (images.isEmpty()) return html;
+
             String newHtml = html;
             for (Image image : images) {
-                String safeName = slug + image.title();
+                String safeName = slug + "-" + image.title();
 
-                newHtml = newHtml.replace(image.title(), safeName);
+                newHtml = newHtml.replace(image.title(), "/static/images/" + safeName);
 
                 Path destination = Paths.get(imageDir,  safeName);
                 Files.write(destination, image.data());

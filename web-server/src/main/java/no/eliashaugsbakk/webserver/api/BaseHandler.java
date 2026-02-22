@@ -60,11 +60,9 @@ public abstract class BaseHandler implements HttpHandler {
 
         StringBuilder sb = new StringBuilder();
 
-        if (pageRepo != null) {
-            for (Page p : pageRepo.getAllPages()) {
-                sb.append("<li><a href=\"/wiki/").append(p.slug()).append("\">")
-                        .append(p.title()).append("</a></li>");
-            }
+        for (Page p : pageRepo.getAllPages()) {
+            sb.append("<li><a href=\"/wiki/").append(p.slug()).append("\">")
+                    .append(p.title()).append("</a></li>");
         }
         return sb.toString();
     }

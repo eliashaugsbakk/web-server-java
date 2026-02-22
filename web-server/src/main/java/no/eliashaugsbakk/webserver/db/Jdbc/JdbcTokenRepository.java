@@ -1,9 +1,7 @@
 package no.eliashaugsbakk.webserver.db.Jdbc;
 
 import no.eliashaugsbakk.webserver.db.TokenRepository;
-import no.eliashaugsbakk.webserver.model.Page;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

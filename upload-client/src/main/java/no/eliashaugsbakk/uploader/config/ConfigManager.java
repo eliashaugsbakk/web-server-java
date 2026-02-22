@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class ConfigManager {
 
-  Path configPath;
-  List<String> configLines;
+  private final Path configPath;
+  private List<String> configLines;
 
   public ConfigManager(Path path) throws IOException {
     this.configPath = path;

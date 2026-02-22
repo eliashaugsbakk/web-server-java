@@ -58,6 +58,7 @@ public class UploadHandler implements HttpHandler {
                 System.err.println("Bundle is null");
                 respond(exchange,HttpURLConnection.HTTP_BAD_REQUEST);
             }
+            assert jsonBundle != null;
             if (!(new HashUtils().calculateSHA256(jsonBundle.getBytes())).equals(clientHash) ) {
                 System.err.println("Hash mismatch");
                 respond(exchange,HttpURLConnection.HTTP_BAD_REQUEST);

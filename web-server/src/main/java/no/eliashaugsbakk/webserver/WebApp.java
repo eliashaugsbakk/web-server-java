@@ -12,7 +12,7 @@ import java.io.IOException;
 
 class WebApp {
 	static void main(String[] args) throws Exception {
-		String dbPath = System.getenv().getOrDefault("DB_PATH", "pages.db");
+		String dbPath = "/app/database.db";
 		DatabaseManager databaseManager = new DatabaseManager(dbPath);
 		PageRepository pageRepo = new JdbcPageRepository(databaseManager);
 		PostStorageService postStorage = new PostStorageService(pageRepo);
@@ -24,7 +24,9 @@ class WebApp {
 		for (int i = 0; i < args.length; i++) {
 			String arg = args[i];
 			if (arg.equals("--addToken")) {
-				tokenRepo.addToken(args[++i]);
+				if (!tokenRepo.addToken(args[++i])) {
+					System.err.println("Failed to add token");
+				}
 			}
 		}
 
