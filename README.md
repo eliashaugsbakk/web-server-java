@@ -1,61 +1,16 @@
-# Suggested setup
+# Markdown server
+### A lightweight server and client for serving and viewing web pages written in markdown. Used for a wiki or blog type website.
+This project includes:
+* Web-Server written in Java
+* Terminal client for uploading new pages, written in Java.
+* A simple HTML template for the web pages.
 
-The Java web-server program should implement nginx as a reverse proxy.
-Nginx will handle most if not all static content, including:
-    Images, both default, and user uploaded and CSS
+The server is designed with Tor and I2P hosting in mind, keeping resource usage and page weight minimal.
 
-Static content needs to be accessible by both nginx and the Java program.
-The java program saves images to: /app/data/images/. If that directory does not exist, image uploads will fail.
-
-/app/
-├── database.db           ← Java only
-└── data/                 ← Nginx & Java Shared Volume
-    ├── assets/           ← Static (CSS, Logos)
-    │   ├── css/
-    │   └── images/
-    └── images/           ← Data (User Uploads)
-    
-
-# Project Roadmap
-
-## Rewrite webserver without spring
-The scope of the should be limited by design. The web server wil only serve HTML+CSS sites over http. When being deployed, nginx or some other webserver would probably live in between this webserver and the user. Nginx would serve all static content, like images and error pages, while the java web server would handle displaying different sides from a DB.
-
-* [x] Get a simple static webserver running
-* [x] Implement routing
-* [x] Let different sides to be served depending on the request using a String variable containing the HTML.
-* [x] JDBC, SQLite
-* [x] Allow sites to be added with Markdown syntax
-
-## Security
-This web server will be designed to host sites over the Tor-network. The scope of the server would be small to limit the attack surface.
-* [ ] SQL injection
-* [ ] Cross-site scripting
-* [ ] DOS
-* [ ] Other potential security issues?
-
-## Phase 1: MVP - Core Connectivity (Current)
-* [x] **[Client]** Implement Tor SOCKS5 proxy integration via OkHttp.
-* [x] **[Server]** Move to a persistent DB (sqlite)
-* [ ] **[Server]** Update application.properties to minimize the footprint of the server.
-* [ ] **[Server]** (SECURITY) Create robust error handling. Do not leak server information to http requests.
-* [x] **[Server]** Move images out of the DB. DB is for data, folders are for storage.
-* [x] **[Client/Server]** Manual Auth Token exchange via SSH/Text-file.
-* [x] **[Client]** Basic CLI for uploading a single Markdown file.
-* [x] **[Testing]** Verify end-to-end upload from Client → Tor → Local Server.
-
-## Phase 2: The Bundler & Integrity
-* [x] **[Client]** SHA-256 fingerprinting of uploads.
-* [x] **[Server]** (SECURITY) Implement verification of the upload and image files before processing them further.
-* [x] **[Client]** Persistent configuration storage in `~/.config/`.
-
-## Phase 3: Reliability & UX
-* [ ] **[Client]** Upload progress bar for slow Tor circuits.
-* [x] **[Client]** Image normalization and compression engine (pre-upload).
-* [ ] **[Client]** Advanced error handling (Tor proxy status, Auth failure, Server downtime).
-* [x] **[Server]** Improved response codes and server-side validation.
-
-## Phase 4: Expansion & Clearnet Readiness
-* [ ] **[Client]** Smart-switch logic for Tor vs. Clearnet (HTTPS).
-* [x] **[Server]** Multi-user support (Token management for multiple clients).
-* [ ] **[Client]** GUI wrapper or enhanced interactive CLI.
+## Future improvements
+* Make the Web-Server agnostic to what content is being hosted.
+* Frontend using Vite(probably).
+* Home/Landing page.
+* Improvments to page uploads: either by improving the CLI tool or moving to a web based one. Automatic key exchange, with username and password, instead of manually distributed tokens would be an important improvement.
+* Admin panel to manage page content (will probably include deleting pages and do small edits).
+* Client-side search.
